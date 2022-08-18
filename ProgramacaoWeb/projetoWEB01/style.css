@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-image: linear-gradient(to bottom, #264653, #225b68, #1c7079, #1b8786, #2a9d8f);
+    background-color: #264653;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    flex: 2;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+header nav {
+    background-color: #83c5be;
+    height: 80%;
+    width: 70%;  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+
+header nav a:hover{
+    color: white;
+}
+
+header div {
+    height: 80%;
+    width: 10%;
+}
+
+header .logo {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .login {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header .login a {
+    color: white;
+}
+
+header .login a:hover {
+    color: #83c5be;
+}
+
+main {
+    flex: 10;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+main section {
+    background-color: white;
+    width: 70%;
+    height: 90%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 5px;
+}
+
+main aside {
+    background-color: white;
+    width: 10%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+footer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: black;
+}
