@@ -1,0 +1,33 @@
+*
+{
+    border:0;
+    margin:0;
+    padding:0;
+}
+
+html, body
+{
+    width:100%;
+    height:300vh;
+}
+
+.relativo
+{
+    position:relative;
+    background:red;
+    width:100%;
+    height:300px;
+    top:0;
+    left:0;
+}
+
+.sticky
+{
+    position:sticky;
+    width:100%;
+    height:100px;
+    background:rgb(0, 119, 255);
+    top:100px;
+    right:0;
+    z-index:1;
+}
