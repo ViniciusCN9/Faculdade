@@ -1,0 +1,64 @@
+*
+{
+    margin:0;
+    padding:0;
+    border:0;
+    box-sizing:border-box;
+}
+
+html, body
+{
+    width:100%;
+    height:100%;
+    background-color:rgb(220,20,60);
+}
+
+main
+{
+    position:relative;
+    margin:0 auto;
+    width:100%;
+    max-width:1200px;
+    background-color:rgb(255,255,255);
+    height:100%;
+}
+
+img
+{
+    width:100%;
+    max-width:100%;
+    height:auto;
+    align-items:center;
+}
+
+article
+{
+    width:100%;
+    height:auto;
+}
+
+@media (max-width: 699px)
+{
+    .mobile
+    {
+        display: block;
+    }
+    
+    .pc
+    {
+        display: none;
+    }
+}
+
+@media (min-width: 700px)
+{
+    .mobile
+    {
+        display: none;
+    }
+    
+    .pc
+    {
+        display: block;
+    }
+}
