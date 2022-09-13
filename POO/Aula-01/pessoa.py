@@ -10,5 +10,3 @@ class pessoa:
     def falar(self, texto):
         conteudo = (f'{self.nome} {self.sobrenome} disse: {texto}')
         return conteudo
-
-    
