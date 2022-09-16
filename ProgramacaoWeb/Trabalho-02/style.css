@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*
+{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body
+{
+    width: 100%;
+    height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+main
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url("img/background.png");
+    background-position: center;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+}
+
+.navbar
+{
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+
+.logo
+{
+    width: 160px;
+    cursor: pointer;
+}
+
+.carrinho
+{
+    width: 40px;
+    cursor: pointer;
+}
+
+nav
+{
+    flex: 1;
+    padding-left: 60px;
+}
+
+nav ul li
+{
+    display: inline-block;
+    list-style: none;
+    margin: 0px 20px;
+}
+
+nav ul li a
+{
+    text-decoration: none;
+    color: #333;
+}
+
+.conteudo h1
+{
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 24px;
+    margin-bottom: 15px;
+    color: #232d60;
+}
+
+.conteudo p
+{
+    font-size: 20px;
+    color: #6a7199;
+}
+
+.conteudo
+{
+    margin-left: 10%;
+    margin-top: 10%;
+}
+
+.conteudo .btn
+{
+    display: inline-block;
+    background: linear-gradient(45deg, #87adfe, #ff77cd);
+    border-radius: 6px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 3px 8px 22px rgba(94,28,68,0.15);
+}
+
+.icones
+{
+    margin-top: 40px;
+    display: flex;
+}
+
+.icones img
+{
+    width: 40px;
+    margin-right: 25px;
+}
+
+.imagem
+{
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    right: 160px;
+}
+
+.redes
+{
+    transform: rotate(-90deg);
+    position: absolute;
+    left: -30px;
+    bottom: 180px;
+}
+
+.redes a
+{
+    text-decoration: none;
+    color: #6a7199;
+    padding-right: 20px;
+    font-size: 12px;
+}
+
