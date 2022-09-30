@@ -2,6 +2,7 @@ import os
 import time
 from faculdade import Faculdade
 from aluno import Aluno
+from curso import Curso
 
 def limpar():
     print("\n" * os.get_terminal_size().lines)
@@ -17,6 +18,17 @@ def carregando():
     print("Carregando o sistema ...")
     time.sleep(1)
 
+def encerrando():
+    limpar()
+    print("Encerrando .")
+    time.sleep(1)
+    limpar()
+    print("Encerrando ..")
+    time.sleep(1)
+    limpar()
+    print("Encerrando ...")
+    time.sleep(1)
+
 def saudacao():
     limpar()
     print("========================================================")
@@ -28,6 +40,11 @@ def opcaoInvalida(mensagem = "Opção inválida!"):
     time.sleep(2)
     limpar()
 
+def sucesso(mensagem = "Operação realizada com sucesso!"):
+    print(f"\n{mensagem}")
+    time.sleep(2)
+    limpar()
+
 def adicionarAluno():
     print("Adicionar novo aluno\n")
 
@@ -35,15 +52,16 @@ def adicionarAluno():
     while True:
         try: 
             curso = int(input("Informe o curso do aluno: "))
-            if (curso in Faculdade.cursos):
+            if (curso in Faculdade.cursos.keys()):
                 break
             else:
                 opcaoInvalida("Curso não disponível na faculdade!")
         except:
             opcaoInvalida()
     
-    aluno = Aluno(nome, curso)
+    aluno = Aluno(nome, Curso(curso))
     Faculdade.adicionarAluno(aluno)
+    sucesso()
 
 def listarAluno():
     print("Consultar informações de aluno\n")
@@ -77,21 +95,24 @@ def opcoes():
         case 1:
             Faculdade.listarAlunos()
             input("\n Aperte qualquer tecla para voltar")
+            limpar()
             opcoes()
         case 2:
-            
+            listarAluno()
+            input("\n Aperte qualquer tecla para voltar")
+            limpar()
             opcoes()
         case 3:
-            print("3")
+            adicionarAluno()
             opcoes()
         case 4:
-            print("4")
+            print("Ainda não implementado")
             opcoes()
         case 5:
-            print("5")
+            print("Ainda não implementado")
             opcoes()
         case 0:
-            print("0")
+            encerrando()
         case _:
             opcaoInvalida()
             opcoes()
