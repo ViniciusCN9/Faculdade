@@ -1,125 +1,32 @@
-import os
-import time
+from tela import carregando, opcoes, encerrando
 from faculdade import Faculdade
-from aluno import Aluno
 from curso import Curso
-
-def limpar():
-    print("\n" * os.get_terminal_size().lines)
-
-def carregando():
-    limpar()
-    print("Carregando o sistema .")
-    time.sleep(1)
-    limpar()
-    print("Carregando o sistema ..")
-    time.sleep(1)
-    limpar()
-    print("Carregando o sistema ...")
-    time.sleep(1)
-
-def encerrando():
-    limpar()
-    print("Encerrando .")
-    time.sleep(1)
-    limpar()
-    print("Encerrando ..")
-    time.sleep(1)
-    limpar()
-    print("Encerrando ...")
-    time.sleep(1)
-
-def saudacao():
-    limpar()
-    print("========================================================")
-    print("Bem vindo ao sistema educacional da faculdade Gran Tietê")
-    print("========================================================\n")
-
-def opcaoInvalida(mensagem = "Opção inválida!"):
-    print(f"\n{mensagem}")
-    time.sleep(2)
-    limpar()
-
-def sucesso(mensagem = "Operação realizada com sucesso!"):
-    print(f"\n{mensagem}")
-    time.sleep(2)
-    limpar()
-
-def adicionarAluno():
-    print("Adicionar novo aluno\n")
-
-    nome = input("Informe o nome do aluno: ")
-    while True:
-        try: 
-            curso = int(input("Informe o curso do aluno: "))
-            if (curso in Faculdade.cursos.keys()):
-                break
-            else:
-                opcaoInvalida("Curso não disponível na faculdade!")
-        except:
-            opcaoInvalida()
-    
-    aluno = Aluno(nome, Curso(curso))
-    Faculdade.adicionarAluno(aluno)
-    sucesso()
-
-def listarAluno():
-    print("Consultar informações de aluno\n")
-
-    while True:
-        try:
-            id = int(input("Informe o ID do aluno: "))
-            break
-        except:
-            opcaoInvalida("Id informado inválido")
-
-    Faculdade.listarAluno(id)
-
-def opcoes():
-    print("Informe a ação desejada:")
-    print("1 - Consultar alunos cadastrados")
-    print("2 - Consultar informações de aluno")
-    print("3 - Adicionar novo aluno")
-    print("4 - Atualizar informações dos alunos")
-    print("5 - Deletar aluno cadastrado")
-    print("0 - Sair\n")
-
-    try:
-        opcao = int(input("Opção: "))
-        limpar()
-    except:
-        opcaoInvalida()
-        opcoes()
-
-    match opcao:
-        case 1:
-            Faculdade.listarAlunos()
-            input("\n Aperte qualquer tecla para voltar")
-            limpar()
-            opcoes()
-        case 2:
-            listarAluno()
-            input("\n Aperte qualquer tecla para voltar")
-            limpar()
-            opcoes()
-        case 3:
-            adicionarAluno()
-            opcoes()
-        case 4:
-            print("Ainda não implementado")
-            opcoes()
-        case 5:
-            print("Ainda não implementado")
-            opcoes()
-        case 0:
-            encerrando()
-        case _:
-            opcaoInvalida()
-            opcoes()
+from aluno import Aluno
 
 def main():
     carregando()
-    saudacao()
     opcoes()
+    encerrando()
+
+# Adicionando alguns cursos à faculdade
+Faculdade.cursos.update({
+    Curso.ENGENHARIA_MECANICA.value : Curso.ENGENHARIA_MECANICA.name, 
+    Curso.ENGENHARIA_COMPUTACAO.value : Curso.ENGENHARIA_COMPUTACAO.name, 
+    Curso.ENGENHARIA_PRODUCAO.value : Curso.ENGENHARIA_PRODUCAO.name,
+    Curso.ENFERMAGEM.value : Curso.ENFERMAGEM.name,
+    Curso.NUTRICAO.value : Curso.NUTRICAO.name
+})
+
+# Adicionando alguns alunos à faculdade
+Faculdade.adicionarAluno(Aluno("Pedro Miguel Pires", Curso.ENFERMAGEM))
+Faculdade.adicionarAluno(Aluno("Maria Clara Sales", Curso.ENGENHARIA_COMPUTACAO))
+Faculdade.adicionarAluno(Aluno("Lara Nunes", Curso.ENGENHARIA_PRODUCAO))
+Faculdade.adicionarAluno(Aluno("Carlos Eduardo Costa", Curso.NUTRICAO))
+Faculdade.adicionarAluno(Aluno("Evelyn Monteiro", Curso.ENFERMAGEM))
+Faculdade.adicionarAluno(Aluno("Bruno Ramos", Curso.ENGENHARIA_MECANICA))
+Faculdade.adicionarAluno(Aluno("Cauã Teixeira", Curso.ENGENHARIA_COMPUTACAO))
+Faculdade.adicionarAluno(Aluno("Eduardo Dias", Curso.ENGENHARIA_PRODUCAO))
+Faculdade.adicionarAluno(Aluno("Camila Duarte", Curso.NUTRICAO))
+Faculdade.adicionarAluno(Aluno("Pedro Gomes", Curso.ENGENHARIA_MECANICA))
 
 main()
