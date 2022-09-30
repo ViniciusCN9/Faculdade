@@ -1,0 +1,11 @@
+from enum import Enum
+
+class curso(Enum):
+    ENGENHARIA_MECANICA = 1
+    ENGENHARIA_PRODUCAO = 2
+    ENGENHARIA_COMPUTACAO = 3
+    NUTRICAO = 4
+    ADMINISTRACAO = 5
+    EDUCACAO_FISICA = 6
+    ENFERMAGEM = 7
+    PSICOLOGIA = 8
