@@ -1,5 +1,7 @@
 import os
 import time
+from faculdade import Faculdade
+from aluno import Aluno
 
 def limpar():
     print("\n" * os.get_terminal_size().lines)
@@ -21,10 +23,39 @@ def saudacao():
     print("Bem vindo ao sistema educacional da faculdade Gran Tietê")
     print("========================================================\n")
 
-def opcaoInvalida():
-    print("\nOpção inválida!")
+def opcaoInvalida(mensagem = "Opção inválida!"):
+    print(f"\n{mensagem}")
     time.sleep(2)
     limpar()
+
+def adicionarAluno():
+    print("Adicionar novo aluno\n")
+
+    nome = input("Informe o nome do aluno: ")
+    while True:
+        try: 
+            curso = int(input("Informe o curso do aluno: "))
+            if (curso in Faculdade.cursos):
+                break
+            else:
+                opcaoInvalida("Curso não disponível na faculdade!")
+        except:
+            opcaoInvalida()
+    
+    aluno = Aluno(nome, curso)
+    Faculdade.adicionarAluno(aluno)
+
+def listarAluno():
+    print("Consultar informações de aluno\n")
+
+    while True:
+        try:
+            id = int(input("Informe o ID do aluno: "))
+            break
+        except:
+            opcaoInvalida("Id informado inválido")
+
+    Faculdade.listarAluno(id)
 
 def opcoes():
     print("Informe a ação desejada:")
@@ -44,10 +75,11 @@ def opcoes():
 
     match opcao:
         case 1:
-            print("")
+            Faculdade.listarAlunos()
+            input("\n Aperte qualquer tecla para voltar")
             opcoes()
         case 2:
-            print("2")
+            
             opcoes()
         case 3:
             print("3")

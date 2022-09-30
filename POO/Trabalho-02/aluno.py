@@ -1,9 +1,9 @@
-class aluno():
+class Aluno():
     id = 1
     def __init__(self, nome, curso):
-        self.id = aluno.id
+        self.id = Aluno.id
         self.nome = nome
         self.curso = curso
 
-        aluno.id += 1
+        Aluno.id += 1
 

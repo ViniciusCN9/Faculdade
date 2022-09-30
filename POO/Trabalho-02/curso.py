@@ -1,6 +1,6 @@
 from enum import Enum
 
-class curso(Enum):
+class Curso(Enum):
     ENGENHARIA_MECANICA = 1
     ENGENHARIA_PRODUCAO = 2
     ENGENHARIA_COMPUTACAO = 3
