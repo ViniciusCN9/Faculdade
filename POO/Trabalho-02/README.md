@@ -1,12 +1,17 @@
-# Trabalho bimestral de PROGRAMAÇÃO DE COMPUTADORES E SISTEMAS ORIENTADOS A OBJETOS
+# PROGRAMAÇÃO DE COMPUTADORES E SISTEMAS ORIENTADOS A OBJETOS
 
-Projeto simulador de um sistema educacional
+## Projeto simulador de um sistema educacional
 
-## Tecnologias utilizadas
+
+### Tecnologias utilizadas
  
 - Python 3.10
 
-## Funcionalidades
+### Instruções
+
+O arquivo main.py é o ponto de inicialização do sistema.
+
+### Funcionalidades
 
 - Listar os alunos cadastrados na faculdade
 - Consultar informações de um aluno pelo ID
@@ -14,6 +19,13 @@ Projeto simulador de um sistema educacional
 - Atualizar as informações de um aluno cadastrado
 - Deletar aluno
 
-## Considerações
+### Considerações
 
-O projeto proporcionou o avanço dos conhecimentos na tecnologia Python.
+Todas as estruturas exigidas no trabalho bimestral foram contempladas dentro do sistema.
+
+- :white_check_mark: Estrutura de decisão (if e else)
+- :white_check_mark: Estrutura de decisão (if, elif e else)
+- :white_check_mark: Estrutura de repetição (while)
+- :white_check_mark: Estrutura de repetição (for)
+- :white_check_mark: Listas
+
