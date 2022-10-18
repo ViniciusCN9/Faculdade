@@ -7,7 +7,7 @@ def criarDiretorio(path):
     if not os.path.isdir(diretorio):
         os.mkdir(diretorio)
 
-def processar(path):
+def processar(path, pasta):
     imagem = cv2.imread(path)
     altura = imagem.shape[0]
     largura = imagem.shape[1]
@@ -30,16 +30,16 @@ def processar(path):
             verde[i, j] =[0,g,0]
             azul[i, j] =[b,0,0]
             
-    cv2.imwrite(os.path.join(path, "vermelho.png"), vermelho)
-    cv2.imwrite(os.path.join(path, "verde.png"), verde)
-    cv2.imwrite(os.path.join(path, "azul.png"), azul)
+    cv2.imwrite(os.path.join(path, pasta, "vermelho.png"), vermelho)
+    cv2.imwrite(os.path.join(path, pasta, "verde.png"), verde)
+    cv2.imwrite(os.path.join(path, pasta, "azul.png"), azul)
 
 caminho = "./imagens"
 arquivos = os.listdir(caminho)
 
 for arquivo in arquivos:
     path = os.path.join(caminho, arquivo)
-    processar(path)
+    processar(path, f"{arquivo.removesuffix('.jpg')}img")
     
     
 
