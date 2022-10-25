@@ -12,7 +12,7 @@ with open('clientes.csv') as arquivo:
         conexao.inserir(f"INSERT INTO clientes VALUES ('{linha[0]}','{linha[1]}', '{linha[2]}', '{linha[3]}', '{util.ajusteData(linha[4])}')")
         contador += 1
         
-    print({f'{contador} linhas processadas.'})
+    print(f'{contador} linhas processadas.')
 
 conexao.fechar()
 
