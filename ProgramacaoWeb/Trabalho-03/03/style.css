@@ -1,0 +1,43 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html,body,main
+{
+    width: 100%;
+    height: 100%;
+}
+
+body
+{
+    background-color: crimson;
+}
+
+main
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(27deg, #ff6734 30%, #c00830 70%);
+}
+
+.item
+{
+    width: 400px;
+    height: 300px;
+    overflow: hidden;
+    border: solid 5px white;
+}
+
+.imagem
+{
+    height: 100%;
+    max-height: 100%;
+    width: auto;
+}
+
