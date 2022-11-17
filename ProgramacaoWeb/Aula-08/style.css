@@ -1,0 +1,85 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: crimson;
+}
+
+main {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.header-left {
+    grid-area: HL;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.header-right {
+    grid-area: HR;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.nav {
+    grid-area: N;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.content-left {
+    grid-area: CL;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.content-right {
+    grid-area: CR;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.content-top {
+    grid-area: CT;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.content-bottom {
+    grid-area: CB;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.footer-left {
+    grid-area: FL;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.footer-right {
+    grid-area: FR;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.layout {
+    grid-template-areas:
+        "HL HL HL HR"
+        "N N N N"
+        "CL CT CT CR"
+        "CL CB CB CR"
+        "FL FR FR FR";
+}
