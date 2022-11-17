@@ -1,0 +1,53 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: crimson;
+}
+
+main {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.nav {
+    grid-area: nav;
+}
+
+.conteudo {
+    grid-area: conteudo;
+}
+
+.categorias {
+    grid-area: categorias;
+}
+
+.publicidade {
+    grid-area: publicidade;
+}
+
+.rodape {
+    grid-area: rodape;
+}
+
+.layout {
+    grid-template-areas:
+        "logo nav nav"
+        "categorias conteudo publicidade"
+        "categorias footer footer";
+}
