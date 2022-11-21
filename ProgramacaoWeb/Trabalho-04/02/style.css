@@ -1,0 +1,85 @@
+* {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: crimson;
+}
+
+main {
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    grid-area: header;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.pesquisa {
+    grid-area: pesquisa;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.conteudo {
+    grid-area: conteudo;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.ads {
+    grid-area: ads;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.parceiros {
+    grid-area: parceiros;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.ofertas {
+    grid-area: ofertas;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.logo {
+    grid-area: logo;
+    background-color: white;
+    border: 1px solid black;
+}
+
+.layout {
+    grid-template-areas:
+        "header header header"
+        "pesquisa conteudo ads"
+        "nav conteudo parceiros"
+        "nav ofertas ofertas"
+        "footer footer logo";
+}
