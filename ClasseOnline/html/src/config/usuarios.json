@@ -1,0 +1,32 @@
+{
+    "usuarios":[
+        {
+            "id": 1,
+            "usuario": "professor1",
+            "senha": "professor",
+            "opcao": "p",
+            "classes": ["apxm-slif-hwyu-nfps"]
+        },
+        {
+            "id": 2,
+            "usuario": "professor2",
+            "senha": "professor",
+            "opcao": "p",
+            "classes": []
+        },
+        {
+            "id": 3,
+            "usuario": "aluno1",
+            "senha": "aluno",
+            "opcao": "a",
+            "classes": []
+        },
+        {
+            "id": 4,
+            "usuario": "aluno2",
+            "senha": "aluno",
+            "opcao": "a",
+            "classes": []
+        }
+    ]
+}
