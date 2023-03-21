@@ -24,6 +24,9 @@ int main(int argc, char *argv[]) {
 	printf("\n//====//====/6/====//====//\n");
 	//exercicio6();
 	//getchar();
+	printf("\n//====//====/7/====//====//\n");
+	exercicio7();
+	
 	
 	return 0;
 }
@@ -62,7 +65,7 @@ void exercicio3() {
 	printf("Digite o raio da circunferência: ");
 	scanf("%lf", &raio);
 	
-	area = 2 * PI * raio;
+	area = PI * raio * raio;
 	
 	printf("A área calculada é: %lf", area);
 }
@@ -113,6 +116,20 @@ void exercicio6() {
 }
 
 // 7. Escreva um programa que leia uma string e exiba o número de caracteres.
+void exercicio7() {
+	int quantidade = 0;
+	char[100] texto;
+	
+	printf("Digite o texto: ");
+	fgets(texto, 100, stdin)
+	
+	while(texto[quantidade] != '\0')
+		quantidade++;
+	
+	printf("O número de caracteres é: %d", quantidade)
+	
+}
+
 // 8. Escreva um programa que leia um vetor de 10 números inteiros e exiba a soma de todos os elementos.
 // 9. Escreva um programa que leia um vetor de 5 números reais e exiba o maior e o menor valor.
 // 10. Escreva um programa que leia um vetor de 10 números inteiros e exiba os elementos em ordem inversa.
