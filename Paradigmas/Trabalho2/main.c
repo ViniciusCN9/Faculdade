@@ -92,11 +92,13 @@ int obterMaximoDivisorComum(int numero1, int numero2)
 
 bool verificarPrimo(int numero)
 {
+	int i;
+
 	if (numero <= 1)
 	{
 		return false;
 	}
-	for (int i = 2; i <= numero / 2; i++)
+	for (i = 2; i <= numero / 2; i++)
 	{
 		if (numero % i == 0)
 		{
@@ -136,7 +138,7 @@ float calcularPotencia(float base, int expoente)
 // 1. Escreva um programa que leia dois números inteiros e exiba a soma deles.
 void exercicio1()
 {
-	int numero1, numero2;
+	int numero1, numero2, soma;
 
 	printf("Digite o primeiro número: ");
 	scanf("%d", &numero1);
@@ -144,7 +146,9 @@ void exercicio1()
 	printf("Digite o segundo número: ");
 	scanf("%d", &numero2);
 
-	printf("Os números digitados são %d e %d", numero1, numero2);
+	soma = numero1 + numero2;
+
+	printf("A soma dos números digitados é %d", soma);
 }
 
 // 2. Escreva um programa que converta uma temperatura de graus Celsius para Fahrenheit.
