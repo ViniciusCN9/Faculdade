@@ -1,142 +1,451 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
 #include <locale.h>
+#include <time.h>
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 	setlocale(LC_ALL, "portuguese");
 	printf("\n//====//====/1/====//====//\n");
-	//exercicio1();
-	//getchar();
+	// exercicio1();
+	// getchar();
 	printf("\n//====//====/2/====//====//\n");
-	//exercicio2();
-	//getchar();
+	// exercicio2();
+	// getchar();
 	printf("\n//====//====/3/====//====//\n");
-	//exercicio3();
-	//getchar();
+	// exercicio3();
+	// getchar();
 	printf("\n//====//====/4/====//====//\n");
-	//exercicio4();
-	//getchar();
+	// exercicio4();
+	// getchar();
 	printf("\n//====//====/5/====//====//\n");
-	//exercicio5();
-	//getchar();
+	// exercicio5();
+	// getchar();
 	printf("\n//====//====/6/====//====//\n");
-	//exercicio6();
-	//getchar();
+	// exercicio6();
+	// getchar();
 	printf("\n//====//====/7/====//====//\n");
-	exercicio7();
-	
-	
+	// exercicio7();
+	// getchar();
+	printf("\n//====//====/8/====//====//\n");
+	// exercicio8();
+	// getchar();
+	printf("\n//====//====/9/====//====//\n");
+	// exercicio9();
+	// getchar();
+	printf("\n//====//====/10/====//====//\n");
+	// exercicio10();
+	// getchar();
+	printf("\n//====//====/11/====//====//\n");
+	// exercicio11();
+	// getchar();
+	printf("\n//====//====/12/====//====//\n");
+	// exercicio12();
+	// getchar();
+	printf("\n//====//====/13/====//====//\n");
+	// exercicio13();
+	// getchar();
+	printf("\n//====//====/14/====//====//\n");
+	// exercicio14();
+	// getchar();
+	printf("\n//====//====/15/====//====//\n");
+	// exercicio15();
+	// getchar();
+	printf("\n//====//====/16/====//====//\n");
+	// exercicio16();
+	// getchar();
+	printf("\n//====//====/17/====//====//\n");
+	exercicio17();
+	getchar();
+
 	return 0;
 }
 
-// 1. Escreva um programa que leia dois números inteiros e exiba a soma deles.
-void exercicio1() {
+// 0. Auxiliares
+int obterFatorial(int numero)
+{
+	if (numero == 0)
+	{
+		return 1;
+	}
+	else
+	{
+		return numero * obterFatorial(numero - 1);
+	}
+}
+
+int obterMaximoDivisorComum(int numero1, int numero2)
+{
+	if (numero2 == 0)
+	{
+		return numero1;
+	}
+	else
+	{
+		return obterMaximoDivisorComum(numero2, numero1 % numero2);
+	}
+}
+
+bool verificarPrimo(int numero)
+{
+	if (numero <= 1)
+	{
+		return false;
+	}
+	for (int i = 2; i <= numero / 2; i++)
+	{
+		if (numero % i == 0)
+		{
+			return false;
+		}
+	}
+	return true;
+}
+
+float calcularPotencia(float base, int expoente)
+{
+	float resultado = 1;
+	int i;
+
+	if (expoente == 0)
+	{
+		return 1;
+	}
+	else if (expoente < 0)
+	{
+		for (i = 1; i <= -expoente; i++)
+		{
+			resultado /= base;
+		}
+	}
+	else
+	{
+		for (i = 1; i <= expoente; i++)
+		{
+			resultado *= base;
+		}
+	}
+
+	return resultado;
+}
+
+// 1. Escreva um programa que leia dois nÃºmeros inteiros e exiba a soma deles.
+void exercicio1()
+{
 	int numero1, numero2;
-	
-	printf("Digite o primeiro número: ");
+
+	printf("Digite o primeiro nÃºmero: ");
 	scanf("%d", &numero1);
-	
-	printf("Digite o segundo número: ");
+
+	printf("Digite o segundo nÃºmero: ");
 	scanf("%d", &numero2);
-	
-	printf("Os números digitados são %d e %d", numero1, numero2);
+
+	printf("Os nÃºmeros digitados sÃ£o %d e %d", numero1, numero2);
 }
 
 // 2. Escreva um programa que converta uma temperatura de graus Celsius para Fahrenheit.
-void exercicio2() {
+void exercicio2()
+{
 	double temperaturaCelsius, temperaturaFahrenheit;
-	
+
 	printf("Digite a temperatura em Celsius: ");
 	scanf("%lf", &temperaturaCelsius);
-	
+
 	temperaturaFahrenheit = (temperaturaCelsius * 1.8) + 32;
-	
-	printf("A temperatura em Fahrenheit é: %lf", temperaturaFahrenheit);
+
+	printf("A temperatura em Fahrenheit Ã©: %lf", temperaturaFahrenheit);
 }
 
-// 3. Escreva um programa que calcule a área de um círculo, dado seu raio.
-void exercicio3() {
+// 3. Escreva um programa que calcule a Ã¡rea de um cÃ­rculo, dado seu raio.
+void exercicio3()
+{
 	double PI = 3.1416;
 	double raio;
 	double area;
-	
-	printf("Digite o raio da circunferência: ");
+
+	printf("Digite o raio da circunferÃªncia: ");
 	scanf("%lf", &raio);
-	
+
 	area = PI * raio * raio;
-	
-	printf("A área calculada é: %lf", area);
+
+	printf("A Ã¡rea calculada Ã¡: %lf", area);
 }
 
-// 4. Escreva um programa que leia três números e exiba o maior deles.
-void exercicio4() {
+// 4. Escreva um programa que leia trÃªs nÃºmeros e exiba o maior deles.
+void exercicio4()
+{
 	int entrada;
 	int maior = 0;
-	
+
 	int i;
-	for (i = 0; i < 3; i++) {
-		printf("Digite um número: ");
+	for (i = 0; i < 3; i++)
+	{
+		printf("Digite um nÃºmero: ");
 		scanf("%d", &entrada);
-		
-		if (entrada > maior) {
+
+		if (entrada > maior)
+		{
 			maior = entrada;
 		}
 	}
-	
-	printf("O maior número é: %d", maior);
+
+	printf("O maior nÃºmero Ã©: %d", maior);
 }
 
-// 5. Escreva um programa que determine se um número inteiro é par ou ímpar.
-void exercicio5() {
+// 5. Escreva um programa que determine se um nÃºmero inteiro Ã© par ou Ã­mpar.
+void exercicio5()
+{
 	int entrada;
-	
-	printf("Digite um número: ");
+
+	printf("Digite um nÃºmero: ");
 	scanf("%d", &entrada);
-	
-	if (entrada%2 == 0) {
-		printf("O número é par");
-	} else {
-		printf("O número é impar");
+
+	if (entrada % 2 == 0)
+	{
+		printf("O nÃºmero Ã© par");
+	}
+	else
+	{
+		printf("O nÃºmero Ã© impar");
 	}
 }
 
-// 6. Escreva um programa que leia um número inteiro e exiba a sua tabuada.
-void exercicio6() {
+// 6. Escreva um programa que leia um nÃºmero inteiro e exiba a sua tabuada.
+void exercicio6()
+{
 	int entrada;
-	
-	printf("Digite um número: ");
+
+	printf("Digite um nÃºmero: ");
 	scanf("%d", &entrada);
-	
+
 	int i;
-	for (i = 0; i <= 10; i++) {
+	for (i = 0; i <= 10; i++)
+	{
 		printf("%d X %d = %d\n", entrada, i, entrada * i);
 	}
 }
 
-// 7. Escreva um programa que leia uma string e exiba o número de caracteres.
-void exercicio7() {
-	int quantidade = 0;
-	char[100] texto;
-	
+// 7. Escreva um programa que leia uma string e exiba o nÃºmero de caracteres.
+void exercicio7()
+{
+	char texto[100];
+	int quantidade;
+
 	printf("Digite o texto: ");
-	fgets(texto, 100, stdin)
-	
-	while(texto[quantidade] != '\0')
-		quantidade++;
-	
-	printf("O número de caracteres é: %d", quantidade)
-	
+	fgets(texto, 100, stdin);
+
+	quantidade = strlen(texto) - 1;
+	printf("O nÃºmero de caracteres Ã©: %d", quantidade);
 }
 
-// 8. Escreva um programa que leia um vetor de 10 números inteiros e exiba a soma de todos os elementos.
-// 9. Escreva um programa que leia um vetor de 5 números reais e exiba o maior e o menor valor.
-// 10. Escreva um programa que leia um vetor de 10 números inteiros e exiba os elementos em ordem inversa.
-// 11. Escreva um programa que leia um vetor de 10 números inteiros e calcule a média aritmética dos elementos.
-// 12. Escreva um programa que leia um vetor de 10 números inteiros e determine quantos elementos são pares e quantos são ímpares.
-// 13. Escreva um programa que gere 100 número aleatórios inteiros e armazene-os em um vetor, em seguida determine quantos são pares e quantos são ímpares.
-// 14. Escreva um programa que implemente uma função para calcular o fatorial de um número inteiro.
-// 15. Escreva um programa que implemente uma função para calcular o MDC (Máximo Divisor Comum) de dois números inteiros.
-// 16. Escreva um programa que implemente uma função para verificar se um número inteiro é primo.
-// 17. Escreva um programa que implemente uma função para calcular a potência de um número real (base) elevado a um número inteiro (expoente).
+// 8. Escreva um programa que leia um vetor de 10 nÃºmeros inteiros e exiba a soma de todos os elementos.
+void exercicio8()
+{
+	int vetor[10];
+	int i, soma = 0;
+
+	for (i = 0; i < 10; i++)
+	{
+		printf("Digite o %dÂº nÃºmero: ", i + 1);
+		scanf("%d", &vetor[i]);
+	}
+
+	for (i = 0; i < 10; i++)
+	{
+		soma += vetor[i];
+	}
+
+	printf("A soma dos elementos do vetor Ã©: %d\n", soma);
+}
+
+// 9. Escreva um programa que leia um vetor de 5 nÃºmeros reais e exiba o maior e o menor valor.
+void exercicio9()
+{
+	float vetor[5];
+	float maior, menor;
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		printf("Digite o %dÂº nÃºmero: ", i + 1);
+		scanf("%f", &vetor[i]);
+	}
+
+	maior = vetor[0];
+	menor = vetor[0];
+
+	for (i = 1; i < 5; i++)
+	{
+		if (vetor[i] > maior)
+		{
+			maior = vetor[i];
+		}
+		if (vetor[i] < menor)
+		{
+			menor = vetor[i];
+		}
+	}
+
+	printf("O maior nÃºmero do vetor Ã©: %.2f\n", maior);
+	printf("O menor nÃºmero do vetor Ã©: %.2f\n", menor);
+}
+
+// 10. Escreva um programa que leia um vetor de 10 nÃºmeros inteiros e exiba os elementos em ordem inversa.
+void exercicio10()
+{
+	int vetor[10];
+	int i;
+
+	for (i = 0; i < 10; i++)
+	{
+		printf("Digite o %dÂº nÃºmero: ", i + 1);
+		scanf("%d", &vetor[i]);
+	}
+
+	printf("O vetor em ordem inversa Ã©: ");
+	for (i = 9; i >= 0; i--)
+	{
+		printf("%d ", vetor[i]);
+	}
+}
+
+// 11. Escreva um programa que leia um vetor de 10 nÃºmeros inteiros e calcule a mÃ©dia aritmÃ©tica dos elementos.
+void exercicio11()
+{
+	int vetor[10];
+	float media = 0;
+	int i;
+
+	for (i = 0; i < 10; i++)
+	{
+		printf("Digite o %dÂº nÃºmero: ", i + 1);
+		scanf("%d", &vetor[i]);
+		media += vetor[i];
+	}
+
+	media /= 10;
+
+	printf("A mÃ©dia dos elementos do vetor Ã©: %.2f", media);
+}
+
+// 12. Escreva um programa que leia um vetor de 10 nÃºmeros inteiros e determine quantos elementos sÃ£o pares e quantos sÃ£o Ã­mpares.
+void exercicio12()
+{
+	int vetor[10];
+	int i, pares = 0, impares = 0;
+
+	for (i = 0; i < 10; i++)
+	{
+		printf("Digite o %dÂº nÃºmero: ", i + 1);
+		scanf("%d", &vetor[i]);
+	}
+
+	for (i = 0; i < 10; i++)
+	{
+		if (vetor[i] % 2 == 0)
+		{
+			pares++;
+		}
+		else
+		{
+			impares++;
+		}
+	}
+
+	printf("O vetor contÃ©m %d nÃºmero(s) par(es) e %d nÃºmero(s) Ã­mpar(es).", pares, impares);
+}
+
+// 13. Escreva um programa que gere 100 nÃºmero aleatÃ³rios inteiros e armazene-os em um vetor, em seguida determine quantos sÃ£o pares e quantos sÃ£o Ã­mpares.
+void exercicio13()
+{
+	int vetor[100];
+	int i, pares = 0, impares = 0;
+
+	// Inicializa o gerador de nÃºmeros aleatÃ³rios com a hora atual do sistema
+	srand(time(NULL));
+
+	// Preenche o vetor com 100 nÃºmeros aleatÃ³rios entre 0 e 99
+	for (i = 0; i < 100; i++)
+	{
+		vetor[i] = rand() % 100;
+	}
+
+	for (i = 0; i < 100; i++)
+	{
+		if (vetor[i] % 2 == 0)
+		{
+			pares++;
+		}
+		else
+		{
+			impares++;
+		}
+	}
+
+	printf("O vetor contÃ©m %d nÃºmero(s) par(es) e %d nÃºmero(s) Ã­mpar(es).", pares, impares);
+}
+
+// 14. Escreva um programa que implemente uma funÃ§Ã£o para calcular o fatorial de um nÃºmero inteiro.
+void exercicio14()
+{
+	int entrada, fatorial;
+
+	printf("Digite um nÃºmero inteiro: ");
+	scanf("%d", &entrada);
+
+	fatorial = obterFatorial(entrada);
+
+	printf("O fatorial de %d Ã© %d.", entrada, fatorial);
+}
+
+// 15. Escreva um programa que implemente uma funÃ§Ã£o para calcular o MDC (MÃ¡ximo Divisor Comum) de dois nÃºmeros inteiros.
+void exercicio15()
+{
+	int entrada1, entrada2, resultado;
+
+	printf("Digite dois nÃºmeros inteiros: ");
+	scanf("%d %d", &entrada1, &entrada2);
+
+	resultado = obterMaximoDivisorComum(entrada1, entrada2);
+
+	printf("O mÃ¡ximo divisor comum entre %d e %d Ã© %d.", entrada1, entrada2, resultado);
+}
+
+// 16. Escreva um programa que implemente uma funÃ§Ã£o para verificar se um nÃºmero inteiro Ã© primo.
+void exercicio16()
+{
+	int entrada;
+
+	printf("Digite um nÃºmero inteiro: ");
+	scanf("%d", &entrada);
+
+	if (verificarPrimo(entrada))
+	{
+		printf("%d Ã© primo!", entrada);
+	}
+	else
+	{
+		printf("%d nÃ£o Ã© primo!", entrada);
+	}
+}
+
+// 17. Escreva um programa que implemente uma funÃ§Ã£o para calcular a potÃªncia de um nÃºmero real (base) elevado a um nÃºmero inteiro (expoente).
+void exercicio17()
+{
+	float base, resultado;
+	int expoente;
+
+	printf("Digite a base (real separdo com ','): ");
+	scanf("%f", &base);
+
+	printf("Digite o expoente (inteiro): ");
+	scanf("%d", &expoente);
+
+	resultado = calcularPotencia(base, expoente);
+
+	printf("%.2f elevado a %d Ã© igual a %.2f", base, expoente, resultado);
+}
