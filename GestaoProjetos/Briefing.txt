@@ -1,0 +1,20 @@
+TEMA: Metodologias para desenvolvimento de projetos de Software
+
+RESUMO:
+
+	Este trabalho acadêmico visa apresentar as principais metodologias para desenvolvimentos de projetos de software utilizadas no mercado, suas vantagens de desvantagens e em quais cenários utilizar cada uma delas.
+
+INTRODUÇÃO:
+
+OBJETIVO:
+
+PRINCIPAIS METODOLOGIAS DE DESENVOLVIMENTO DE SOFTWARE:
+
+CONSIDERAÇÕES FINAIS:
+
+REFERÊNCIAS:
+https://cuboup.com/conteudo/metodologias-de-desenvolvimento-de-software/ 30/03
+
+https://www.ivoryit.com.br/2022/05/06/metodologias-de-desenvolvimento-de-software-conheca-as-principais/
+
+https://asana.com/pt/resources/project-management-methodologies
