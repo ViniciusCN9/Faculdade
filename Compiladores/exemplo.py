@@ -1,5 +1,5 @@
 class Program:
-    
+
     @staticmethod
     def main():
         numero: int = 5
@@ -8,3 +8,5 @@ class Program:
             print("Maior que 5!")
         else:
             print("Menor que 5!")
+
+
