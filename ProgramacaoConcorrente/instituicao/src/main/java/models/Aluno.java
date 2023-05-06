@@ -3,26 +3,25 @@ package models;
 public class Aluno {
 	
 	private static int ID_COUNTER = 1;
-	public int Id;
-	public String Nome;
+	private int Id;
+	private String Nome;
 	
 	public Aluno(String nome) {
-		Id = ID_COUNTER;
-		Nome = nome;
+		this.Id = ID_COUNTER;
+		this.Nome = nome;
 		
 		ID_COUNTER++; 
 	}
 	
 	public int getId() {
-		return Id;
+		return this.Id;
 	}
-	public void setId(int id) {
-		Id = id;
-	}
+
 	public String getNome() {
-		return Nome;
+		return this.Nome;
 	}
+	
 	public void setNome(String nome) {
-		Nome = nome;
+		this.Nome = nome;
 	}
 }
