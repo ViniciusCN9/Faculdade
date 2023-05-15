@@ -1,0 +1,10 @@
+# Codigo de exemplo da linguagem ficticia
+
+primeiroNumero = 5;
+segundoNumero = 5;
+soma = primeiroNumero + segundoNumero;
+
+if (soma == 10):
+    verificador = true;
+else:
+    verificador = false;
