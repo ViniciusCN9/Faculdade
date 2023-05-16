@@ -2,8 +2,6 @@ const gerarNumeros = require('./numeros')
 let numerosAleatorios = gerarNumeros(1, 10);
 // console.log(numerosAleatorios);
 
-exercicio15("Texto")
-
 function exercicio1(texto) {
     console.log(texto)
 }
@@ -89,24 +87,38 @@ function exercicio14(numero) {
 }
 
 function exercicio15(texto) {
-
-    console.log(texto.split("").reverse().join(""))
+    return texto.split("").reverse().join("")
 }
 
-function exercicio16() {
-
+function exercicio16(texto) {
+    let invertida = texto.split("").reverse().join("")
+    return texto === invertida ? true : false
 }
 
-function exercicio17() {
-
+// exercicio17()
+function exercicio17(textoA, textoB) {
+    if (textoA.length != textoB.length) {
+        return false
+    }
+    return textoA.split("").sort().join("") == textoB.split("").sort().join("")
 }
 
-function exercicio18() {
-
+// exercicio18(["Maria", "Ana", "Aparecido", "João"])
+function exercicio18(vetor) {
+    ordenado = vetor.sort((anterior, proximo) => {
+        if (proximo.length > anterior.length) {
+            return -1
+        }
+        if (proximo.length < anterior.length) {
+            return 1
+        }
+        return 0
+    })
+    console.log(ordenado)
 }
 
 function exercicio19() {
-
+    var texto = ""
 }
 
 function exercicio20() {
