@@ -1,4 +1,6 @@
-errors = []
+from ply import lex
+
+lex_errors = []
 
 reserved = {
     "if": "IF",
@@ -131,5 +133,14 @@ def t_EOB(t):
     return t
 
 def t_error(t):
-    errors.append(t)
+    lex_errors.append(t)
     t.lexer.skip(1)
+
+def run_lexer(source):
+    lexer = lex.lex()
+    lexer.input(source)
+
+    for tok in lexer:
+        print(tok)
+    
+    return lex_errors

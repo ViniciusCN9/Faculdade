@@ -1,0 +1,635 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    BOOL
+    CHAR
+    FOR
+    IGNORE
+    OP_ATRI_DENIAL
+    OP_ATRI_DIVISION_EQUAL
+    OP_ATRI_MINUS_EQUAL
+    OP_ATRI_PLUS_EQUAL
+    OP_ATRI_TIMES_EQUAL
+    OP_EXEC_COMMA
+    OP_EXEC_DOT
+    OP_EXPR_CLOSE_BRACKETS
+    OP_EXPR_CLOSE_CURLY_BRACKETS
+    OP_EXPR_OPEN_BRACKETS
+    OP_EXPR_OPEN_CURLY_BRACKETS
+    OP_LOGI_AND
+    OP_LOGI_OR
+    OP_MARK_DQUOTES
+    OP_MARK_SQUOTES
+    OP_RELA_BIGGER
+    OP_RELA_BIGGER_EQUAL
+    OP_RELA_DIFFERENTIATE
+    OP_RELA_LESS
+    OP_RELA_LESS_EQUAL
+    RESERVED
+    STRING
+    WHILE
+
+Grammar
+
+Rule 0     S' -> statements
+Rule 1     statements -> statements statement
+Rule 2     statements -> statement
+Rule 3     statement -> OP_MARK_COMMENT
+Rule 4     statement -> VARIABLE OP_ATRI_EQUAL INT EOB
+Rule 5     statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB
+Rule 6     statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB
+Rule 7     statement -> VARIABLE OP_ATRI_EQUAL expression EOB
+Rule 8     statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+Rule 9     statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+Rule 10    expression -> VARIABLE OP_MATE_PLUS VARIABLE
+Rule 11    expression -> VARIABLE OP_MATE_MINUS VARIABLE
+Rule 12    expression -> VARIABLE OP_MATE_TIMES VARIABLE
+Rule 13    expression -> VARIABLE OP_MATE_DIVISION VARIABLE
+Rule 14    expression -> VARIABLE OP_MATE_MODULE VARIABLE
+Rule 15    conditional -> VARIABLE OP_RELA_COMPARE INT
+Rule 16    expression -> OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS
+Rule 17    expression -> INT
+Rule 18    expression -> DOUBLE
+Rule 19    expression -> TRUE
+Rule 20    expression -> FALSE
+
+Terminals, with rules where they appear
+
+BOOL                 : 
+CHAR                 : 
+DOUBLE               : 18
+ELSE                 : 9
+EOB                  : 4 5 6 7
+FALSE                : 6 20
+FOR                  : 
+IF                   : 8 9
+IGNORE               : 
+INT                  : 4 15 17
+OP_ATRI_DENIAL       : 
+OP_ATRI_DIVISION_EQUAL : 
+OP_ATRI_EQUAL        : 4 5 6 7
+OP_ATRI_MINUS_EQUAL  : 
+OP_ATRI_PLUS_EQUAL   : 
+OP_ATRI_TIMES_EQUAL  : 
+OP_EXEC_COLON        : 8 9 9
+OP_EXEC_COMMA        : 
+OP_EXEC_DOT          : 
+OP_EXPR_CLOSE_BRACKETS : 
+OP_EXPR_CLOSE_CURLY_BRACKETS : 
+OP_EXPR_CLOSE_PARENTHESIS : 8 9 16
+OP_EXPR_OPEN_BRACKETS : 
+OP_EXPR_OPEN_CURLY_BRACKETS : 
+OP_EXPR_OPEN_PARENTHESIS : 8 9 16
+OP_LOGI_AND          : 
+OP_LOGI_OR           : 
+OP_MARK_COMMENT      : 3
+OP_MARK_DQUOTES      : 
+OP_MARK_SQUOTES      : 
+OP_MATE_DIVISION     : 13
+OP_MATE_MINUS        : 11
+OP_MATE_MODULE       : 14
+OP_MATE_PLUS         : 10
+OP_MATE_TIMES        : 12
+OP_RELA_BIGGER       : 
+OP_RELA_BIGGER_EQUAL : 
+OP_RELA_COMPARE      : 15
+OP_RELA_DIFFERENTIATE : 
+OP_RELA_LESS         : 
+OP_RELA_LESS_EQUAL   : 
+RESERVED             : 
+STRING               : 
+TRUE                 : 5 19
+VARIABLE             : 4 5 6 7 10 10 11 11 12 12 13 13 14 14 15
+WHILE                : 
+error                : 
+
+Nonterminals, with rules where they appear
+
+conditional          : 8 9
+expression           : 7 16
+statement            : 1 2
+statements           : 1 8 9 9 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . statements
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+    statements                     shift and go to state 1
+    statement                      shift and go to state 2
+
+state 1
+
+    (0) S' -> statements .
+    (1) statements -> statements . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+    statement                      shift and go to state 6
+
+state 2
+
+    (2) statements -> statement .
+
+    OP_MARK_COMMENT reduce using rule 2 (statements -> statement .)
+    VARIABLE        reduce using rule 2 (statements -> statement .)
+    IF              reduce using rule 2 (statements -> statement .)
+    $end            reduce using rule 2 (statements -> statement .)
+    ELSE            reduce using rule 2 (statements -> statement .)
+
+
+state 3
+
+    (3) statement -> OP_MARK_COMMENT .
+
+    OP_MARK_COMMENT reduce using rule 3 (statement -> OP_MARK_COMMENT .)
+    VARIABLE        reduce using rule 3 (statement -> OP_MARK_COMMENT .)
+    IF              reduce using rule 3 (statement -> OP_MARK_COMMENT .)
+    $end            reduce using rule 3 (statement -> OP_MARK_COMMENT .)
+    ELSE            reduce using rule 3 (statement -> OP_MARK_COMMENT .)
+
+
+state 4
+
+    (4) statement -> VARIABLE . OP_ATRI_EQUAL INT EOB
+    (5) statement -> VARIABLE . OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> VARIABLE . OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> VARIABLE . OP_ATRI_EQUAL expression EOB
+
+    OP_ATRI_EQUAL   shift and go to state 7
+
+
+state 5
+
+    (8) statement -> IF . OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> IF . OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_EXPR_OPEN_PARENTHESIS shift and go to state 8
+
+
+state 6
+
+    (1) statements -> statements statement .
+
+    OP_MARK_COMMENT reduce using rule 1 (statements -> statements statement .)
+    VARIABLE        reduce using rule 1 (statements -> statements statement .)
+    IF              reduce using rule 1 (statements -> statements statement .)
+    $end            reduce using rule 1 (statements -> statements statement .)
+    ELSE            reduce using rule 1 (statements -> statements statement .)
+
+
+state 7
+
+    (4) statement -> VARIABLE OP_ATRI_EQUAL . INT EOB
+    (5) statement -> VARIABLE OP_ATRI_EQUAL . TRUE EOB
+    (6) statement -> VARIABLE OP_ATRI_EQUAL . FALSE EOB
+    (7) statement -> VARIABLE OP_ATRI_EQUAL . expression EOB
+    (10) expression -> . VARIABLE OP_MATE_PLUS VARIABLE
+    (11) expression -> . VARIABLE OP_MATE_MINUS VARIABLE
+    (12) expression -> . VARIABLE OP_MATE_TIMES VARIABLE
+    (13) expression -> . VARIABLE OP_MATE_DIVISION VARIABLE
+    (14) expression -> . VARIABLE OP_MATE_MODULE VARIABLE
+    (16) expression -> . OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS
+    (17) expression -> . INT
+    (18) expression -> . DOUBLE
+    (19) expression -> . TRUE
+    (20) expression -> . FALSE
+
+    INT             shift and go to state 10
+    TRUE            shift and go to state 11
+    FALSE           shift and go to state 12
+    VARIABLE        shift and go to state 9
+    OP_EXPR_OPEN_PARENTHESIS shift and go to state 14
+    DOUBLE          shift and go to state 15
+
+    expression                     shift and go to state 13
+
+state 8
+
+    (8) statement -> IF OP_EXPR_OPEN_PARENTHESIS . conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS . conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+    (15) conditional -> . VARIABLE OP_RELA_COMPARE INT
+
+    VARIABLE        shift and go to state 17
+
+    conditional                    shift and go to state 16
+
+state 9
+
+    (10) expression -> VARIABLE . OP_MATE_PLUS VARIABLE
+    (11) expression -> VARIABLE . OP_MATE_MINUS VARIABLE
+    (12) expression -> VARIABLE . OP_MATE_TIMES VARIABLE
+    (13) expression -> VARIABLE . OP_MATE_DIVISION VARIABLE
+    (14) expression -> VARIABLE . OP_MATE_MODULE VARIABLE
+
+    OP_MATE_PLUS    shift and go to state 18
+    OP_MATE_MINUS   shift and go to state 19
+    OP_MATE_TIMES   shift and go to state 20
+    OP_MATE_DIVISION shift and go to state 21
+    OP_MATE_MODULE  shift and go to state 22
+
+
+state 10
+
+    (4) statement -> VARIABLE OP_ATRI_EQUAL INT . EOB
+    (17) expression -> INT .
+
+  ! shift/reduce conflict for EOB resolved as shift
+    EOB             shift and go to state 23
+
+  ! EOB             [ reduce using rule 17 (expression -> INT .) ]
+
+
+state 11
+
+    (5) statement -> VARIABLE OP_ATRI_EQUAL TRUE . EOB
+    (19) expression -> TRUE .
+
+  ! shift/reduce conflict for EOB resolved as shift
+    EOB             shift and go to state 24
+
+  ! EOB             [ reduce using rule 19 (expression -> TRUE .) ]
+
+
+state 12
+
+    (6) statement -> VARIABLE OP_ATRI_EQUAL FALSE . EOB
+    (20) expression -> FALSE .
+
+  ! shift/reduce conflict for EOB resolved as shift
+    EOB             shift and go to state 25
+
+  ! EOB             [ reduce using rule 20 (expression -> FALSE .) ]
+
+
+state 13
+
+    (7) statement -> VARIABLE OP_ATRI_EQUAL expression . EOB
+
+    EOB             shift and go to state 26
+
+
+state 14
+
+    (16) expression -> OP_EXPR_OPEN_PARENTHESIS . expression OP_EXPR_CLOSE_PARENTHESIS
+    (10) expression -> . VARIABLE OP_MATE_PLUS VARIABLE
+    (11) expression -> . VARIABLE OP_MATE_MINUS VARIABLE
+    (12) expression -> . VARIABLE OP_MATE_TIMES VARIABLE
+    (13) expression -> . VARIABLE OP_MATE_DIVISION VARIABLE
+    (14) expression -> . VARIABLE OP_MATE_MODULE VARIABLE
+    (16) expression -> . OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS
+    (17) expression -> . INT
+    (18) expression -> . DOUBLE
+    (19) expression -> . TRUE
+    (20) expression -> . FALSE
+
+    VARIABLE        shift and go to state 9
+    OP_EXPR_OPEN_PARENTHESIS shift and go to state 14
+    INT             shift and go to state 28
+    DOUBLE          shift and go to state 15
+    TRUE            shift and go to state 29
+    FALSE           shift and go to state 30
+
+    expression                     shift and go to state 27
+
+state 15
+
+    (18) expression -> DOUBLE .
+
+    EOB             reduce using rule 18 (expression -> DOUBLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 18 (expression -> DOUBLE .)
+
+
+state 16
+
+    (8) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional . OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional . OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_EXPR_CLOSE_PARENTHESIS shift and go to state 31
+
+
+state 17
+
+    (15) conditional -> VARIABLE . OP_RELA_COMPARE INT
+
+    OP_RELA_COMPARE shift and go to state 32
+
+
+state 18
+
+    (10) expression -> VARIABLE OP_MATE_PLUS . VARIABLE
+
+    VARIABLE        shift and go to state 33
+
+
+state 19
+
+    (11) expression -> VARIABLE OP_MATE_MINUS . VARIABLE
+
+    VARIABLE        shift and go to state 34
+
+
+state 20
+
+    (12) expression -> VARIABLE OP_MATE_TIMES . VARIABLE
+
+    VARIABLE        shift and go to state 35
+
+
+state 21
+
+    (13) expression -> VARIABLE OP_MATE_DIVISION . VARIABLE
+
+    VARIABLE        shift and go to state 36
+
+
+state 22
+
+    (14) expression -> VARIABLE OP_MATE_MODULE . VARIABLE
+
+    VARIABLE        shift and go to state 37
+
+
+state 23
+
+    (4) statement -> VARIABLE OP_ATRI_EQUAL INT EOB .
+
+    OP_MARK_COMMENT reduce using rule 4 (statement -> VARIABLE OP_ATRI_EQUAL INT EOB .)
+    VARIABLE        reduce using rule 4 (statement -> VARIABLE OP_ATRI_EQUAL INT EOB .)
+    IF              reduce using rule 4 (statement -> VARIABLE OP_ATRI_EQUAL INT EOB .)
+    $end            reduce using rule 4 (statement -> VARIABLE OP_ATRI_EQUAL INT EOB .)
+    ELSE            reduce using rule 4 (statement -> VARIABLE OP_ATRI_EQUAL INT EOB .)
+
+
+state 24
+
+    (5) statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .
+
+    OP_MARK_COMMENT reduce using rule 5 (statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .)
+    VARIABLE        reduce using rule 5 (statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .)
+    IF              reduce using rule 5 (statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .)
+    $end            reduce using rule 5 (statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .)
+    ELSE            reduce using rule 5 (statement -> VARIABLE OP_ATRI_EQUAL TRUE EOB .)
+
+
+state 25
+
+    (6) statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .
+
+    OP_MARK_COMMENT reduce using rule 6 (statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .)
+    VARIABLE        reduce using rule 6 (statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .)
+    IF              reduce using rule 6 (statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .)
+    $end            reduce using rule 6 (statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .)
+    ELSE            reduce using rule 6 (statement -> VARIABLE OP_ATRI_EQUAL FALSE EOB .)
+
+
+state 26
+
+    (7) statement -> VARIABLE OP_ATRI_EQUAL expression EOB .
+
+    OP_MARK_COMMENT reduce using rule 7 (statement -> VARIABLE OP_ATRI_EQUAL expression EOB .)
+    VARIABLE        reduce using rule 7 (statement -> VARIABLE OP_ATRI_EQUAL expression EOB .)
+    IF              reduce using rule 7 (statement -> VARIABLE OP_ATRI_EQUAL expression EOB .)
+    $end            reduce using rule 7 (statement -> VARIABLE OP_ATRI_EQUAL expression EOB .)
+    ELSE            reduce using rule 7 (statement -> VARIABLE OP_ATRI_EQUAL expression EOB .)
+
+
+state 27
+
+    (16) expression -> OP_EXPR_OPEN_PARENTHESIS expression . OP_EXPR_CLOSE_PARENTHESIS
+
+    OP_EXPR_CLOSE_PARENTHESIS shift and go to state 38
+
+
+state 28
+
+    (17) expression -> INT .
+
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 17 (expression -> INT .)
+
+
+state 29
+
+    (19) expression -> TRUE .
+
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 19 (expression -> TRUE .)
+
+
+state 30
+
+    (20) expression -> FALSE .
+
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 20 (expression -> FALSE .)
+
+
+state 31
+
+    (8) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS . OP_EXEC_COLON statements
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS . OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_EXEC_COLON   shift and go to state 39
+
+
+state 32
+
+    (15) conditional -> VARIABLE OP_RELA_COMPARE . INT
+
+    INT             shift and go to state 40
+
+
+state 33
+
+    (10) expression -> VARIABLE OP_MATE_PLUS VARIABLE .
+
+    EOB             reduce using rule 10 (expression -> VARIABLE OP_MATE_PLUS VARIABLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 10 (expression -> VARIABLE OP_MATE_PLUS VARIABLE .)
+
+
+state 34
+
+    (11) expression -> VARIABLE OP_MATE_MINUS VARIABLE .
+
+    EOB             reduce using rule 11 (expression -> VARIABLE OP_MATE_MINUS VARIABLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 11 (expression -> VARIABLE OP_MATE_MINUS VARIABLE .)
+
+
+state 35
+
+    (12) expression -> VARIABLE OP_MATE_TIMES VARIABLE .
+
+    EOB             reduce using rule 12 (expression -> VARIABLE OP_MATE_TIMES VARIABLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 12 (expression -> VARIABLE OP_MATE_TIMES VARIABLE .)
+
+
+state 36
+
+    (13) expression -> VARIABLE OP_MATE_DIVISION VARIABLE .
+
+    EOB             reduce using rule 13 (expression -> VARIABLE OP_MATE_DIVISION VARIABLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 13 (expression -> VARIABLE OP_MATE_DIVISION VARIABLE .)
+
+
+state 37
+
+    (14) expression -> VARIABLE OP_MATE_MODULE VARIABLE .
+
+    EOB             reduce using rule 14 (expression -> VARIABLE OP_MATE_MODULE VARIABLE .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 14 (expression -> VARIABLE OP_MATE_MODULE VARIABLE .)
+
+
+state 38
+
+    (16) expression -> OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS .
+
+    EOB             reduce using rule 16 (expression -> OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS .)
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 16 (expression -> OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS .)
+
+
+state 39
+
+    (8) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON . statements
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON . statements ELSE OP_EXEC_COLON statements
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+    statements                     shift and go to state 41
+    statement                      shift and go to state 2
+
+state 40
+
+    (15) conditional -> VARIABLE OP_RELA_COMPARE INT .
+
+    OP_EXPR_CLOSE_PARENTHESIS reduce using rule 15 (conditional -> VARIABLE OP_RELA_COMPARE INT .)
+
+
+state 41
+
+    (8) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements . ELSE OP_EXEC_COLON statements
+    (1) statements -> statements . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+  ! shift/reduce conflict for ELSE resolved as shift
+  ! shift/reduce conflict for OP_MARK_COMMENT resolved as shift
+  ! shift/reduce conflict for VARIABLE resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+    $end            reduce using rule 8 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .)
+    ELSE            shift and go to state 42
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+  ! OP_MARK_COMMENT [ reduce using rule 8 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .) ]
+  ! VARIABLE        [ reduce using rule 8 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .) ]
+  ! IF              [ reduce using rule 8 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .) ]
+  ! ELSE            [ reduce using rule 8 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements .) ]
+
+    statement                      shift and go to state 6
+
+state 42
+
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE . OP_EXEC_COLON statements
+
+    OP_EXEC_COLON   shift and go to state 43
+
+
+state 43
+
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON . statements
+    (1) statements -> . statements statement
+    (2) statements -> . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+    statements                     shift and go to state 44
+    statement                      shift and go to state 2
+
+state 44
+
+    (9) statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .
+    (1) statements -> statements . statement
+    (3) statement -> . OP_MARK_COMMENT
+    (4) statement -> . VARIABLE OP_ATRI_EQUAL INT EOB
+    (5) statement -> . VARIABLE OP_ATRI_EQUAL TRUE EOB
+    (6) statement -> . VARIABLE OP_ATRI_EQUAL FALSE EOB
+    (7) statement -> . VARIABLE OP_ATRI_EQUAL expression EOB
+    (8) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
+    (9) statement -> . IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+
+  ! shift/reduce conflict for OP_MARK_COMMENT resolved as shift
+  ! shift/reduce conflict for VARIABLE resolved as shift
+  ! shift/reduce conflict for IF resolved as shift
+    $end            reduce using rule 9 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .)
+    ELSE            reduce using rule 9 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .)
+    OP_MARK_COMMENT shift and go to state 3
+    VARIABLE        shift and go to state 4
+    IF              shift and go to state 5
+
+  ! OP_MARK_COMMENT [ reduce using rule 9 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .) ]
+  ! VARIABLE        [ reduce using rule 9 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .) ]
+  ! IF              [ reduce using rule 9 (statement -> IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements .) ]
+
+    statement                      shift and go to state 6
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for EOB in state 10 resolved as shift
+WARNING: shift/reduce conflict for EOB in state 11 resolved as shift
+WARNING: shift/reduce conflict for EOB in state 12 resolved as shift
+WARNING: shift/reduce conflict for ELSE in state 41 resolved as shift
+WARNING: shift/reduce conflict for OP_MARK_COMMENT in state 41 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE in state 41 resolved as shift
+WARNING: shift/reduce conflict for IF in state 41 resolved as shift
+WARNING: shift/reduce conflict for OP_MARK_COMMENT in state 44 resolved as shift
+WARNING: shift/reduce conflict for VARIABLE in state 44 resolved as shift
+WARNING: shift/reduce conflict for IF in state 44 resolved as shift
