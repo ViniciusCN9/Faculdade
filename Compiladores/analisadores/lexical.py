@@ -7,8 +7,6 @@ reserved = {
     "else": "ELSE",
     "while": "WHILE",
     "for": "FOR",
-    "true": "TRUE",
-    "false": "FALSE",
     "int": "INT",
     "double": "DOUBLE",
     "string": "STRING",
@@ -56,9 +54,11 @@ tokens = [
     "OP_EXPR_CLOSE_CURLY_BRACKETS",
     
     "EOB",
-    "RESERVED",
-    "VARIABLE",
-    "IGNORE"
+    "CHARACTER",
+    "LITERAL",
+    "NUMERIC",
+    "BOOLEAN",
+    "VARIABLE"
 ] + list(reserved.values())
 
 t_OP_MATE_PLUS = r'\+'
@@ -101,24 +101,23 @@ t_OP_EXPR_CLOSE_CURLY_BRACKETS = r'\}'
 
 t_ignore = " \t"
 
-def t_CHAR(t):
-    r"('[a-z_A-Z_0-9]')"
+def t_CHARACTER(t):
+    r'("[a-z_A-Z_0-9]")'
     return t
 
-def t_STRING(t):
+def t_LITERAL(t):
     r'("[^"]*")'
     return t
 
-def t_DOUBLE(t):
-    r'([0-9]+\.[0-9]+)|([0-9]+\.[0-9]+)'
-    return t
-
-def t_INT(t):
+def t_NUMERIC(t):
     r'\d+'
-    t.value = int(t.value)
+    return t
+    
+def t_BOOLEAN(t):
+    r'(true|false)'
     return t
 
-def t_VARIABLE(t):
+def t_VARIABLE(t): # Se não for reservada é variável
     r'([a-z_A-Z][a-z_A-Z]*)'
     t.type = reserved.get(t.value, 'VARIABLE')
     return t

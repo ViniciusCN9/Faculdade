@@ -1,41 +1,80 @@
 from ply import yacc
-from ply.yacc import LRParser
 from lexical import *
 
 parse_errors = []
 
-def p_statements_multiple(p):
+def p_statements(p):
     '''
     statements : statements statement
+            | statement
     '''
 
-def p_statements_single(p):
+def p_statement(p):
     '''
-    statements : statement
-    '''
-
-def p_statement_comment(p):
-    '''
-    statement : OP_MARK_COMMENT
-    '''
-
-def p_statement_assignment(p):
-    '''
-    statement : VARIABLE OP_ATRI_EQUAL INT EOB
-            | VARIABLE OP_ATRI_EQUAL TRUE EOB
-            | VARIABLE OP_ATRI_EQUAL FALSE EOB
-            | VARIABLE OP_ATRI_EQUAL expression EOB
+    statement : comment
+            | declaration
+            | assignment
+            | decision
+            | expression
+            | operation
+            | conditional
+            | value
     '''
 
-def p_statement_conditional(p):
+def p_decision(p):
     '''
-    statement : IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements
-            | IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statements ELSE OP_EXEC_COLON statements
+    decision : IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statement
+            | IF OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS OP_EXEC_COLON statement ELSE OP_EXEC_COLON statement
     '''
 
-def p_expression_operation(p):
+def p_expression(p):
     '''
-    expression : VARIABLE OP_MATE_PLUS VARIABLE
+    expression : OP_EXPR_OPEN_PARENTHESIS conditional OP_EXPR_CLOSE_PARENTHESIS
+            | OP_EXPR_OPEN_PARENTHESIS operation OP_EXPR_CLOSE_PARENTHESIS
+            | OP_EXPR_OPEN_PARENTHESIS value OP_EXPR_CLOSE_PARENTHESIS
+    '''
+
+def p_assignment(p):
+    '''
+    assignment : INT VARIABLE OP_ATRI_EQUAL NUMERIC EOB
+            | DOUBLE VARIABLE OP_ATRI_EQUAL NUMERIC EOB
+            | BOOL VARIABLE OP_ATRI_EQUAL BOOLEAN EOB
+            | CHARACTER VARIABLE OP_ATRI_EQUAL CHAR EOB
+            | STRING VARIABLE OP_ATRI_EQUAL LITERAL EOB
+
+            | INT VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+            | DOUBLE VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+            | BOOL VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+            | CHARACTER VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+            | STRING VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+
+            | INT VARIABLE OP_ATRI_EQUAL operation EOB
+            | DOUBLE VARIABLE OP_ATRI_EQUAL operation EOB
+
+            | VARIABLE OP_ATRI_EQUAL NUMERIC EOB
+            | VARIABLE OP_ATRI_EQUAL BOOLEAN EOB
+            | VARIABLE OP_ATRI_EQUAL CHARACTER EOB
+            | VARIABLE OP_ATRI_EQUAL LITERAL EOB
+            | VARIABLE OP_ATRI_EQUAL VARIABLE EOB
+    '''
+
+def p_comment(p):
+    '''
+    comment : OP_MARK_COMMENT
+    '''
+
+def p_declaration(p):
+    '''
+    declaration : INT VARIABLE EOB
+            | DOUBLE VARIABLE EOB
+            | BOOL VARIABLE EOB
+            | CHARACTER VARIABLE EOB
+            | STRING VARIABLE EOB
+    '''
+
+def p_operation(p):
+    '''
+    operation : VARIABLE OP_MATE_PLUS VARIABLE
             | VARIABLE OP_MATE_MINUS VARIABLE
             | VARIABLE OP_MATE_TIMES VARIABLE
             | VARIABLE OP_MATE_DIVISION VARIABLE
@@ -44,25 +83,51 @@ def p_expression_operation(p):
 
 def p_conditional(p):
     '''
-    conditional : VARIABLE OP_RELA_COMPARE INT
+    conditional : VARIABLE OP_RELA_LESS NUMERIC
+            | VARIABLE OP_RELA_LESS BOOLEAN
+            | VARIABLE OP_RELA_LESS LITERAL
+            | VARIABLE OP_RELA_LESS CHARACTER
+            | VARIABLE OP_RELA_LESS VARIABLE
+
+            | VARIABLE OP_RELA_BIGGER NUMERIC
+            | VARIABLE OP_RELA_BIGGER BOOLEAN
+            | VARIABLE OP_RELA_BIGGER LITERAL
+            | VARIABLE OP_RELA_BIGGER CHARACTER
+            | VARIABLE OP_RELA_BIGGER VARIABLE
+
+            | VARIABLE OP_RELA_LESS_EQUAL NUMERIC
+            | VARIABLE OP_RELA_LESS_EQUAL BOOLEAN
+            | VARIABLE OP_RELA_LESS_EQUAL LITERAL
+            | VARIABLE OP_RELA_LESS_EQUAL CHARACTER
+            | VARIABLE OP_RELA_LESS_EQUAL VARIABLE
+
+            | VARIABLE OP_RELA_BIGGER_EQUAL NUMERIC
+            | VARIABLE OP_RELA_BIGGER_EQUAL BOOLEAN
+            | VARIABLE OP_RELA_BIGGER_EQUAL LITERAL
+            | VARIABLE OP_RELA_BIGGER_EQUAL CHARACTER
+            | VARIABLE OP_RELA_BIGGER_EQUAL VARIABLE
+
+            | VARIABLE OP_RELA_COMPARE NUMERIC
+            | VARIABLE OP_RELA_COMPARE BOOLEAN
+            | VARIABLE OP_RELA_COMPARE LITERAL
+            | VARIABLE OP_RELA_COMPARE CHARACTER
+            | VARIABLE OP_RELA_COMPARE VARIABLE
+
+            | VARIABLE OP_RELA_DIFFERENTIATE NUMERIC
+            | VARIABLE OP_RELA_DIFFERENTIATE BOOLEAN
+            | VARIABLE OP_RELA_DIFFERENTIATE LITERAL
+            | VARIABLE OP_RELA_DIFFERENTIATE CHARACTER
+            | VARIABLE OP_RELA_DIFFERENTIATE VARIABLE
     '''
 
-def p_expression_group(p):
+def p_value(p):
     '''
-    expression : OP_EXPR_OPEN_PARENTHESIS expression OP_EXPR_CLOSE_PARENTHESIS
-    '''
-
-def p_expression_number(p):
-    '''
-    expression : INT
-            | DOUBLE
+    value : CHARACTER
+            | LITERAL
+            | NUMERIC
+            | BOOLEAN
     '''
 
-def p_expression_bool(p):
-    '''
-    expression : TRUE
-            | FALSE
-    '''
 
 def p_error(p):
     parse_errors.append(p)

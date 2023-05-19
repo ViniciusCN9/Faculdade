@@ -1,9 +1,10 @@
 # Codigo de exemplo da linguagem ficticia
 
-primeiroNumero = 5;
-segundoNumero = 5;
-soma = primeiroNumero + segundoNumero;
+int primeiroNumero = 5;
+int segundoNumero = 5;
+int soma = primeiroNumero + segundoNumero;
 
+bool verificador;
 if (soma == 10):
     verificador = true;
 else:
