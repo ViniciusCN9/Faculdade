@@ -135,11 +135,15 @@ def t_error(t):
     lex_errors.append(t)
     t.lexer.skip(1)
 
-def run_lexer(source):
+def run_lexer(source) -> dict:
     lexer = lex.lex()
     lexer.input(source)
 
+    tokens = []
     for tok in lexer:
-        print(tok)
-    
-    return lex_errors
+        tokens.append(tok)
+
+    return {
+        "result": tokens, 
+        "errors": lex_errors
+    }

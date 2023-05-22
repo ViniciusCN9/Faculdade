@@ -132,10 +132,10 @@ def p_value(p):
 def p_error(p):
     parse_errors.append(p)
 
-def run_parser(source):
+def run_parser(source) -> dict:
     parser = yacc.yacc()
-    result = parser.parse(source)
-
-    print(result)
-
-    return parse_errors
+    parsed = parser.parse(source)
+    return {
+        "result": parsed,
+        "errors": parse_errors
+    }
