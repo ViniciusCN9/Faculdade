@@ -1,5 +1,6 @@
 const gerarNumeros = require('./numeros')
 let numerosAleatorios = gerarNumeros(1, 10);
+console.log("\033[0;32m\nExercício0:\033[0;0m")
 console.log(numerosAleatorios);
 
 console.log("\033[0;32m\nExercício1:\033[0;0m")
