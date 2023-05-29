@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Marvel Heróis</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Marvel Heróis</h1>
+        <ul class="heroi-list">
+            <% herois.forEach(heroi => { %>
+                <li><a href="/heroi/<%= heroi.id %>">
+                    <%= heroi.id %>: <%= heroi.nome %>
+                </a></li>
+            <% }); %>
+        </ul>
+        <div class="pagination">
+            <% for(let i = 1; i <= totalPages; i++) { %>
+                <a href="/herois/<%= i %>">
+                    <%= i %>
+                </a>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

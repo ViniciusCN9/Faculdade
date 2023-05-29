@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Herói</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1><%= heroi.nome %></h1>
+        <img src="<%= heroi.imagem %>" alt="<%= heroi.nome %>">
+        <p><%= heroi.descricao %></p>
+        <h2>HQs</h2>
+        <ul>
+            <% heroi.hqs.forEach(hq => { %>
+                <li><%= hq.name %></li> 
+            <% }); %>
+        </ul>
+        <button onclick="history.back()">Voltar</button>
+    </div>
+</body>
+</html>
