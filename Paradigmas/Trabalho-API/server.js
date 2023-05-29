@@ -17,7 +17,7 @@ let connection = mysql.createConnection({
 });
 
 connection.connect(erro => {
-    if (error) {
+    if (erro) {
         console.log('Error connection to database: ' + error.stack);
         return;
     }
@@ -62,7 +62,7 @@ app.get('/heroi/:id', (req, res) => {
 
     axios.get(`http://gateway.marvel.com/v1/public/characters/${heroiId}?ts=${ts}&apikey=${publicKey}&hash=${hash}`)
         .then(response => {
-            const heroiData = response.data.data.result[0];
+            const heroiData = response.data.data.results[0];
 
             if (!heroiData) {
                 return res.status(404).send('Heroinão encontrado.');
@@ -81,7 +81,7 @@ app.get('/heroi/:id', (req, res) => {
         .catch(error => {
             const status = error.response ? error.response.status : 500;
             console.log(`Error status ${status}, message: ${error.message}`);
-            res.status(status).send("Erro ao buscar detalhes do heroi.");
+            res.status(status).send("Erro ao buscar detalhes do heroi." + error);
         });
 });
 
@@ -93,7 +93,7 @@ app.get('/encerrar', (req, res) => {
 });
 
 const server= app.listen(port, () => {
-    console.log(`Servidorem execução na porta ${port}`);
+    console.log(`Servidor em execução na porta ${port}`);
 });
 
 setInterval(() => {}, 1000);
