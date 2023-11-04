@@ -1,0 +1,22 @@
+{
+    "Brasil": {
+        "Capital": "Bras\u00edlia",
+        "Popula\u00e7\u00e3o": 220000000,
+        "Idioma": "Portugu\u00eas"
+    },
+    "Estados Unidos": {
+        "Capital": "Washington, D.C.",
+        "Popula\u00e7\u00e3o": 331449281,
+        "Idioma": "Ingl\u00eas"
+    },
+    "Fran\u00e7a": {
+        "Capital": "Paris",
+        "Popula\u00e7\u00e3o": 65273511,
+        "Idioma": "Franc\u00eas"
+    },
+    "Argentina": {
+        "Capital": "Buenos Aires",
+        "Popula\u00e7\u00e3o": 45000000,
+        "Idioma": "Espanhol"
+    }
+}
